@@ -1,0 +1,18 @@
+<form [formGroup]="form" class="view-container" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card fxFlex.xs="80" fxFlex.sm="60" fxFlex="30">
+        <mat-card-content fxLayout="column">
+            <mat-form-field>
+                <input formControlName="email" type="input" matInput placeholder="Email">
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <mat-form-field>
+                <input formControlName="password" matInput type="password" placeholder="Password">
+                <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="onSubmit()" color="primary" mat-raised-button>SIGN UP</button>
+            <button mat-button>SHARE</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

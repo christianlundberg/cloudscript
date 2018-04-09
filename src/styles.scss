@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.view-container{
+    min-height: calc(100vh - 64px);
+}

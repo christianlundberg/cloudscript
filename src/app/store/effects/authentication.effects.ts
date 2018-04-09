@@ -2,7 +2,7 @@ import { of } from 'rxjs/observable/of';
 import { AuthService } from '../../services/auth.service';
 import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import { Action } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import * as authenticationActions from '../actions/authentication.actions';

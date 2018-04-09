@@ -1,7 +1,7 @@
+import { services } from './services';
 import { CommonModule } from '@angular/common';
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { WINDOW_PROVIDERS } from './services/window.service';
-import { AuthService } from './services/auth.service';
 import { effects } from './store/effects';
 import { reducers, CustomSerializer } from './store/reducers';
 import { RouterModule } from '@angular/router';
@@ -44,7 +44,7 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
     }),
     MonacoEditorModule.forRoot()
   ],
-  providers: [AuthService, WINDOW_PROVIDERS, { provide: RouterStateSerializer, useClass: CustomSerializer }],
+  providers: [services, WINDOW_PROVIDERS, { provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

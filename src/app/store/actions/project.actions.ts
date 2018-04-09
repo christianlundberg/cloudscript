@@ -5,12 +5,11 @@ export enum ProjectActionTypes {
     GET_PROJECT = '[Project] Get Project',
     GET_PROJECT_SUCCESS = '[Project] Get Project Success',
     GET_PROJECT_FAIL = '[Project] Get Project Fail',
+    UPDATE_PROJECT = '[Project] Update Project'
 }
 
 export class GetProject{
     readonly type = ProjectActionTypes.GET_PROJECT;
-
-    constructor(public payload: string){}
 }
 
 export class GetProjectSuccess{
@@ -25,4 +24,10 @@ export class GetProjectFail{
     constructor(public payload: any){}
 }
 
-export type ProjectActions = GetProject | GetProjectSuccess | GetProjectFail
+export class UpdateProject{
+    readonly type = ProjectActionTypes.UPDATE_PROJECT;
+
+    constructor(public payload: Project){}
+}
+
+export type ProjectActions = GetProject | GetProjectSuccess | GetProjectFail | UpdateProject;

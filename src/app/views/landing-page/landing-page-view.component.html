@@ -4,21 +4,23 @@
         <h2 style="text-align: center" class="white">Cloudscript can help you build from scratch or even go over code with friends and co-workers, all in real time.</h2>
         <button (click)="onCreate()" color="accent" mat-raised-button><strong>CREATE PROJECT</strong></button>
     </div>
-    <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center" class="secondary">
-        <mat-card fxLayoutGap="10px" fxFlexFill fxLayout="column" fxLayoutAlign="start center" fxFlex>
-            <mat-icon color="warn">group</mat-icon>
-            <h2>Share</h2>
-            Create a project and share the link with someone to start collaborating on your HTML, CSS and Javascript.
-        </mat-card>
-        <mat-card fxLayoutGap="10px" fxFlexFill fxLayout="column" fxLayoutAlign="start center" fxFlex>
-            <mat-icon color="warn">code</mat-icon>
-            <h2>Code</h2>
-            Make changes to the code and everyone will see in real time.
-        </mat-card>
-        <mat-card fxLayoutGap="10px" fxFlexFill fxLayout="column" fxLayoutAlign="start center" fxFlex>
-            <mat-icon color="warn">file_download</mat-icon>
-            <h2>Download</h2>
-            Download the project once you're done.
-        </mat-card>
+    <div fxLayoutAlign="center center" class="secondary">
+        <div fxLayout="row" fxFlex fxLayoutGap="30px" fxLayoutAlign="center stretch">
+            <mat-card fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="start center" fxFlex>
+                <mat-icon color="warn">group</mat-icon>
+                <h2>Share</h2>
+                Create a project and share the link with someone to start collaborating on your HTML, CSS and Javascript.
+            </mat-card>
+            <mat-card fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="start center" fxFlex>
+                <mat-icon color="warn">code</mat-icon>
+                <h2>Code</h2>
+                Make changes to the code and everyone will see in real time.
+            </mat-card>
+            <mat-card fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="start center" fxFlex>
+                <mat-icon color="warn">file_download</mat-icon>
+                <h2>Download</h2>
+                Download the project once you're done.
+            </mat-card>
+        </div>
     </div>
 </section>

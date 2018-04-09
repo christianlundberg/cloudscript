@@ -1,0 +1,18 @@
+<div fxLayout="column">
+        <mat-form-field >
+            <input matInput placeholder="Project name..." (change)="onChange()" [(ngModel)]="project.name">
+            <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+    <mat-tab-group [dynamicHeight]="true">
+        <mat-tab label="HTML">
+            <editor [(ngModel)]="project.code.html" (ngModelChange)="onChange({name: $event})" [options]="{language: 'html'}"></editor>
+        </mat-tab>
+        <mat-tab label="Javascript">
+            <editor [(ngModel)]="project.code.js" (ngModelChange)="onChange({name: $event})" [options]="{language: 'javascript'}"></editor>
+        </mat-tab>
+        <mat-tab label="CSS">
+            <editor [(ngModel)]="project.code.css" (ngModelChange)="onChange({name: $event})" [options]="{language: 'css'}"></editor>
+        </mat-tab>
+        <mat-tab label="Preview">Content 4</mat-tab>
+    </mat-tab-group>
+</div>

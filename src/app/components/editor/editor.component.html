@@ -1,1 +1,1 @@
-<ngx-monaco-editor style="height: 600px" [options]="options" [(ngModel)]="code"></ngx-monaco-editor>
+<ngx-monaco-editor style="height: 600px" [options]="options" (ngModelChange)="update($event)" [(ngModel)]="value"></ngx-monaco-editor>

@@ -1,23 +1,16 @@
-<div class="view-container" fxLayout="row" fxLayoutAlign="center start">
-    <mat-card fxFlex="90">
-        <mat-card-content fxLayout="column">
-            <h2>#Project name</h2>
-            <mat-tab-group>
-                <mat-tab label="HTML">
-                    <editor [options]="{language: 'html'}"></editor>
-                </mat-tab>
-                <mat-tab label="Javascript">
-                    <editor [options]="{language: 'javascript'}"></editor>
-                </mat-tab>
-                <mat-tab label="CSS">
-                    <editor [options]="{language: 'css'}"></editor>
-                </mat-tab>
-                <mat-tab label="Preview">Content 4</mat-tab>
-            </mat-tab-group>
-        </mat-card-content>
-        <!-- <mat-card-actions>
-            <button (click)="onSubmit()" color="primary" mat-raised-button><strong>LOGIN</strong></button>
-            <button mat-button>SHARE</button>
-        </mat-card-actions> -->
-    </mat-card>
+<div *ngIf="isLoading$ | async; else template" fxLayout="column" fxLayoutAlign="center center" class="view-container">
+    <mat-spinner color="accent"></mat-spinner>
 </div>
+<ng-template #template>
+    <div class="view-container" fxLayout="row" fxLayoutAlign="center start">
+        <mat-card fxFlex="90">
+            <mat-card-content>
+                <project-form (update)="onUpdate($event)" [project]="project$ | async"></project-form>
+            </mat-card-content>
+            <!-- <mat-card-actions>
+                <button (click)="onSubmit()" color="primary" mat-raised-button><strong>LOGIN</strong></button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions> -->
+        </mat-card>
+    </div>
+</ng-template>

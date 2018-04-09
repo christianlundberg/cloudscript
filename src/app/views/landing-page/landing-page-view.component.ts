@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Project } from '../../models/project';
 import { ProjectService } from '../../services/project.service';
 import { Component } from '@angular/core';
@@ -15,11 +16,11 @@ const defaultProject: Project =
 })
 export class LandingPageViewComponent {
 
-    constructor(private projectService: ProjectService, firestore: AngularFirestore) {
-        firestore.collection<Project>('projects').doc('bmEWBoHap26YpkaAtitL').snapshotChanges().subscribe(docs => console.log(docs))
+    constructor(private projectService: ProjectService, private router: Router) {
+        
     }
 
     onCreate() {
-        this.projectService.create(defaultProject).then(doc => console.log(doc))
+        this.projectService.create(defaultProject).then(doc => this.router.navigate(['/projects', doc.id]))
     }
 }

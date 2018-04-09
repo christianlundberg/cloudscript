@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import { AppState } from './store/reducers';
 import { isLandingPage } from './store/selectors/router.selectors';
 import { Store } from '@ngrx/store';

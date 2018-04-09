@@ -1,4 +1,10 @@
-<mat-toolbar [class.transparent]="isLandingPage && !isFixed" [color]="isLandingPage ? null : 'primary'" class="navbar" [class.fixed]="isLandingPage" fxLayout="row" fxLayoutAlign="space-between center" >
+<mat-toolbar 
+    class="navbar" 
+    [class.fixed]="isLandingPage" 
+    [class.transparent]="isLandingPage && !isFixed" 
+    [color]="isLandingPage ? null : 'primary'"  
+    fxLayout="row" 
+    fxLayoutAlign="space-between center" >
     <a routerLink="/" mat-button><strong>CLOUDSCRIPT</strong></a>
     <div>
         <a routerLink="/login" mat-button><strong>LOGIN</strong></a>

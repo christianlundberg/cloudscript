@@ -1,3 +1,4 @@
+import { withLatestFrom } from 'rxjs/operators/withLatestFrom';
 import { getProject, isLoadingProject } from '../../store/selectors/project.selectors';
 import { Project } from '../../models/project';
 import { Observable } from 'rxjs/Observable';

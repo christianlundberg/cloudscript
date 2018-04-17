@@ -1,18 +1,22 @@
-<div fxLayout="column">
-        <mat-form-field >
-            <input matInput placeholder="Project name..." (change)="onChange()" [(ngModel)]="project.name">
-            <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-    <mat-tab-group [dynamicHeight]="true">
-        <mat-tab label="HTML">
-            <editor [(ngModel)]="project.code.html" (ngModelChange)="onChange({name: $event})" [options]="{language: 'html'}"></editor>
-        </mat-tab>
-        <mat-tab label="Javascript">
-            <editor [(ngModel)]="project.code.js" (ngModelChange)="onChange({name: $event})" [options]="{language: 'javascript'}"></editor>
-        </mat-tab>
-        <mat-tab label="CSS">
-            <editor [(ngModel)]="project.code.css" (ngModelChange)="onChange({name: $event})" [options]="{language: 'css'}"></editor>
-        </mat-tab>
-        <mat-tab label="Preview">Content 4</mat-tab>
-    </mat-tab-group>
-</div>
+<form [formGroup]="form" fxLayout="column">
+    <mat-form-field>
+        <input matInput placeholder="Project name..." formControlName="name">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+    <div formGroupName="code">
+        <mat-tab-group [dynamicHeight]="true">
+            <mat-tab label="HTML">
+                <editor formControlName="html" [options]="{language: 'html'}"></editor>
+            </mat-tab>
+            <mat-tab label="Javascript">
+                <editor formControlName="js" [options]="{language: 'javascript'}"></editor>
+            </mat-tab>
+            <mat-tab label="CSS">
+                <editor formControlName="css" [options]="{language: 'css'}"></editor>
+            </mat-tab>
+            <mat-tab label="Preview">
+                <iframe [srcdoc]="project.code.html | page: project.code.js:project.code.css | safeHtml" frameborder="0"></iframe>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</form>

@@ -1,3 +1,4 @@
+import { getProject } from '../selectors/project.selectors';
 import { getId } from '../selectors/router.selectors';
 import { AppState } from '../reducers/index';
 import { Action, Store } from '@ngrx/store';
@@ -31,6 +32,7 @@ export class ProjectEffects{
     update$ = this.actions$.pipe(
         ofType(ProjectActionTypes.UPDATE_PROJECT),
         map((action: UpdateProject) => action.payload),
-        tap(project => this.projectService.update(project))
+        withLatestFrom(this.state$.select(getProject)),
+        tap(([state, prevState]) => this.projectService.update({...prevState, ...state}))
     );
 }

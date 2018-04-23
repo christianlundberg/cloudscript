@@ -1,7 +1,8 @@
 import { AppState } from '../../store/reducers';
 import { Store } from '@ngrx/store';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
+import * as authenticationActions from '../../store/actions/authentication.actions';
 
 @Component({
     selector: 'login-view',
@@ -13,12 +14,12 @@ export class LoginViewComponent {
 
     constructor(private store: Store<AppState>, fb: FormBuilder) {
         this.form = fb.group({
-            email: [''],
-            password: ['']
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', [Validators.required, Validators.minLength(6)]]
         });
     }
 
     onSubmit(){
-        
+        this.store.dispatch(new authenticationActions.SignIn(this.form.value));
     }
 }

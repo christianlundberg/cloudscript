@@ -1,4 +1,4 @@
-<navbar [isLandingPage]="isLandingPage$ | async"></navbar>
+<navbar (signOut)="onSignOut()" [loaded]="loaded$ | async" [user]="user$ | async" [isLandingPage]="isLandingPage$ | async"></navbar>
 <div class="container">
     <router-outlet></router-outlet>
 </div>

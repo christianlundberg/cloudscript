@@ -35,6 +35,16 @@ export function reducer(state: AuthenticationState = initialState, action: Authe
             return { ...state, creating: false, error: null };
         case AuthenticationActionTypes.SIGN_UP_FAIL:
             return { ...state, creating: false, error: action.payload };
+        case AuthenticationActionTypes.SIGN_IN:
+            return {...state, loggingIn: true };
+        case AuthenticationActionTypes.SIGN_IN_SUCCESS:
+        case AuthenticationActionTypes.SIGN_IN_FAIL:
+            return {...state, loggingIn: false };
+        case AuthenticationActionTypes.SIGN_OUT:
+            return {...state, loggingOut: true };
+        case AuthenticationActionTypes.SIGN_OUT_SUCCESS:
+        case AuthenticationActionTypes.SIGN_OUT_FAIL:
+            return {...state, loggingOut: false };
         default:
             return state;
     }

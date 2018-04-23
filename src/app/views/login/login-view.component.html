@@ -11,8 +11,8 @@
             </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
-            <button (click)="onSubmit()" color="primary" mat-raised-button><strong>LOGIN</strong></button>
-            <button mat-button>SHARE</button>
+            <button [disabled]="form.invalid" (click)="onSubmit()" color="primary" mat-raised-button><strong>LOGIN</strong></button>
+            <a routerLink="/sign-up" mat-button>Don't have an account? Sign Up!</a>
         </mat-card-actions>
     </mat-card>
 </form>

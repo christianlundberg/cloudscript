@@ -1,3 +1,4 @@
+import { guards } from './guards';
 import { services } from './services';
 import { CommonModule } from '@angular/common';
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -19,6 +20,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -42,9 +44,10 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production // Restrict extension to log-only mode
     }),
-    MonacoEditorModule.forRoot()
+    MonacoEditorModule.forRoot(),
+    MatSnackBarModule
   ],
-  providers: [services, WINDOW_PROVIDERS, { provide: RouterStateSerializer, useClass: CustomSerializer }],
+  providers: [services, ...guards, WINDOW_PROVIDERS, { provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

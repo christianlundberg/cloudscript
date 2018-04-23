@@ -7,6 +7,7 @@ import {
 } from '@ngrx/router-store';
 import * as fromProject from './project.reducer';
 import * as fromAuthentication from './authentication.reducer';
+import * as fromProjects from './projects.reducer';
 
 export interface RouterStateUrl {
     url: string;
@@ -17,12 +18,14 @@ export interface RouterStateUrl {
 export interface AppState {
     router: RouterReducerState<RouterStateUrl>;
     project: fromProject.ProjectState;
+    projects: fromProjects.ProjectsState;
     authentication: fromAuthentication.AuthenticationState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
     router: routerReducer,
     project: fromProject.projectReducer,
+    projects: fromProjects.reducer,
     authentication: fromAuthentication.reducer
 }
 

@@ -6,7 +6,22 @@
     fxLayout="row" 
     fxLayoutAlign="space-between center" >
     <a routerLink="/" mat-button><strong>CLOUDSCRIPT</strong></a>
-    <div>
+    <div *ngIf="loaded && user">
+        <mat-menu #appMenu="matMenu" xPosition="before" yPosition="below">
+            <a routerLink="/projects" mat-menu-item>
+                <mat-icon>dashboard</mat-icon>
+                My Projects
+            </a>
+            <button (click)="onSignOut()" mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+            </button>
+        </mat-menu>
+        <button mat-button [matMenuTriggerFor]="appMenu">
+            <strong>{{user.email}}</strong>
+        </button>
+    </div>
+    <div *ngIf="loaded && !user">
         <a routerLink="/login" mat-button><strong>LOGIN</strong></a>
         <a routerLink="/sign-up" mat-raised-button color="accent"><strong>SIGN UP</strong></a>
     </div>

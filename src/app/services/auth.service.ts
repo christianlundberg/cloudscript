@@ -13,7 +13,15 @@ export class AuthService {
         this.authState = afAuth.authState;
     }
 
+    signIn({email, password }){
+        return this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    }
+
     signUp({ email, password }) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+    }
+
+    signOut(){
+        return this.afAuth.auth.signOut();
     }
 }

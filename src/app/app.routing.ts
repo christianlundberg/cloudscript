@@ -21,6 +21,7 @@ export const routes: Routes = [
     { 
         path: 'projects', 
         loadChildren: './views/projects/projects.routing#ProjectsRouting', 
+        pathMatch: 'full',
         canLoad: [AuthenticatedGuard] 
     },
     { 

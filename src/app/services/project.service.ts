@@ -18,7 +18,7 @@ export class ProjectService {
     }
 
     getAll(userId: string){
-        return this.firestore.collection<Project>('projects')
+        return this.firestore.collection<Project>('projects', ref => ref.where('userId', '==', userId))
             .snapshotChanges()
             .pipe(
                 map(snapshot => snapshot.map(doc => ({...doc.payload.doc.data(), id: doc.payload.doc.id})))

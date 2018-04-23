@@ -44,6 +44,6 @@ export class ProjectFormComponent implements OnChanges, OnInit {
     ngOnInit() {
         this.form.valueChanges
         .pipe(debounceTime(1000))
-        .subscribe(value => (console.log(value),this.update.emit(value)));
+        .subscribe(value => this.update.emit(value));
     }
 }
